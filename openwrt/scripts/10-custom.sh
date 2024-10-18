@@ -42,11 +42,6 @@ sed -i '3 a\\t\t"order": 50,' package/new/ddns-go/luci-app-ddns-go/root/usr/shar
 # add eqosplus
 git clone https://$github/pmkol/openwrt-eqosplus package/new/openwrt-eqosplus --depth 1
 
-# add qosmate
-git clone https://github.com/hudra0/qosmate package/new/qosmate --depth 1
-sed -i 's/option enabled '1'/option enabled '0'/g' package/new/qosmate/etc/config/qosmate
-git clone https://github.com/pmkol/luci-app-qosmate package/new/luci-app-qosmate --depth 1
-
 # add luci-app-tailscale
 git clone https://github.com/asvow/luci-app-tailscale package/new/luci-app-tailscale --depth 1
 
@@ -58,10 +53,6 @@ git clone https://$github/pmkol/luci-app-upnp feeds/luci/applications/luci-app-u
 rm -rf feeds/packages/net/haproxy
 cp -a ../master/packages/net/haproxy feeds/packages/net/haproxy
 sed -i '/ADDON+=USE_QUIC_OPENSSL_COMPAT=1/d' feeds/packages/net/haproxy/Makefile
-
-# bump iproute2 version
-rm -rf package/network/utils/iproute2
-cp -a ../master/openwrt/package/network/utils/iproute2 package/network/utils/iproute2
 
 # change geodata
 rm -rf package/new/helloworld/v2ray-geodata
