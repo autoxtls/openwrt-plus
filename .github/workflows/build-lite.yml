@@ -1,4 +1,4 @@
-name: Build openwrt lite with kernel-6.12
+name: Build openwrt lite with kernel-6.6
 
 on:
   workflow_dispatch:
