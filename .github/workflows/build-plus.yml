@@ -1,4 +1,4 @@
-name: Build openwrt plus with kernel-6.12
+name: Build openwrt plus with kernel-6.6
 
 on:
   workflow_dispatch:
@@ -101,7 +101,7 @@ jobs:
       continue-on-error: true
       run: |
         export GITHUB_REPO=${{ github.repository }}
-        export TESTING_KERNEL=y KERNEL_CLANG_LTO=y BUILD_FAST=y ENABLE_UHTTPD=y ENABLE_LTO=y ENABLE_LRNG=y ENABLE_BPF=y USE_GCC14=y ENABLE_MOLD=y
+        export KERNEL_CLANG_LTO=y BUILD_FAST=y ENABLE_UHTTPD=y ENABLE_LTO=y ENABLE_LRNG=y ENABLE_BPF=y USE_GCC14=y ENABLE_MOLD=y
         bash <(curl -sS https://raw.githubusercontent.com/${{ github.repository }}/master/openwrt/build.sh) ${{ matrix.tag.type }} ${{ matrix.model }}
         cd openwrt
         tags=$(git describe --abbrev=0 --tags)
