@@ -30,6 +30,9 @@ if [ "$version" = "snapshots-24.10" ]; then
     curl -s https://$mirror/openwrt/patch/pcre/Config.in > package/libs/pcre/Config.in
 fi
 
+# lrzsz
+curl -s https://$mirror/openwrt/patch/lrzsz/201-fix-build-with-gcc14.patch > feeds/packages/utils/lrzsz/patches/201-fix-build-with-gcc14.patch
+
 # irqbalance - openwrt master
 if [ "$version" = "rc2" ]; then
     rm -rf feeds/packages/utils/irqbalance
