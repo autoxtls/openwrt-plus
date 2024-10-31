@@ -31,6 +31,7 @@ if [ "$version" = "snapshots-24.10" ]; then
 fi
 
 # lrzsz
+sed -i 's|@DEBIAN/pool/main/l/lrzsz/|https://github.com/pmkol/lrzsz/releases/download/$(PKG_VERSION)/|g' feeds/packages/utils/lrzsz/Makefile
 curl -s https://$mirror/openwrt/patch/lrzsz/201-fix-build-with-gcc14.patch > feeds/packages/utils/lrzsz/patches/201-fix-build-with-gcc14.patch
 
 # irqbalance - openwrt master
