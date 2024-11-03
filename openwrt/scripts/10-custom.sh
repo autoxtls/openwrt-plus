@@ -15,6 +15,7 @@ fi
 rm -rf package/new/helloworld/luci-app-mihomo
 rm -rf package/new/helloworld/mihomo
 git clone https://$github/pmkol/openwrt-mihomo package/new/openwrt-mihomo --depth 1
+echo "/usr/bin/mihomo" > package/new/openwrt-mihomo/mihomo/upx_list.txt
 if [ "$MINIMAL_BUILD" = "y" ]; then
     if curl -s "https://$mirror/openwrt/23-config-minimal-common" | grep -q "^CONFIG_PACKAGE_luci-app-mihomo=y"; then
         mkdir -p files/etc/mihomo/run/ui
@@ -42,6 +43,7 @@ fi
 # add ddns-go
 git clone https://$github/sirpdboy/luci-app-ddns-go package/new/ddns-go --depth 1
 sed -i '3 a\\t\t"order": 50,' package/new/ddns-go/luci-app-ddns-go/root/usr/share/rpcd/acl.d/luci-app-ddns-go.json
+echo "/usr/bin/ddns-go" > package/new/ddns-go/luci-app-ddns-go/upx_list.txt
 
 # add eqosplus
 git clone https://$github/pmkol/openwrt-eqosplus package/new/openwrt-eqosplus --depth 1
