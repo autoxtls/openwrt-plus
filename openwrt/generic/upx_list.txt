@@ -1,8 +1,11 @@
 /usr/bin/aircast
 /usr/bin/airupnp
 /usr/bin/alist
+/usr/bin/ddns-go
 /usr/bin/frpc
+/usr/bin/mihomo
 /usr/bin/mosdns
+/usr/bin/sing-box
 /usr/bin/sslocal
 /usr/bin/ssserver
 /usr/bin/v2dat
