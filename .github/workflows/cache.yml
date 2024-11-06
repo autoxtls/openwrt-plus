@@ -54,8 +54,6 @@ jobs:
 
     - name: Compile Toolchain
       working-directory: /builder
-      env:
-        git_password: ${{ secrets.git_password }}
       run: |
         BUILD_TOOLCHAIN=y ENABLE_LTO=y ENABLE_BPF=y USE_GCC14=y ENABLE_MOLD=y bash <(curl -sS https://raw.githubusercontent.com/${{ github.repository }}/master/openwrt/build.sh) ${{ matrix.tag.type }} ${{ matrix.model }}
 
@@ -67,5 +65,5 @@ jobs:
         tag: ${{ matrix.tag.version }}
         commit: main
         replacesArtifacts: true
-        token: ${{ secrets.workflow_token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.WORKDIR }}/openwrt/toolchain-cache/*
